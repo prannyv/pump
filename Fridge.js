@@ -19,6 +19,11 @@ function deleteItem(itemIndex) {
     displayFridgeItems();
 }
 
+//Update list
+function updateList(recipe, newList){
+    
+}
+
 // Display fridge items on the UI
 function displayFridgeItems() {
     fridgeList.innerHTML = '';
