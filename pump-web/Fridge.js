@@ -31,7 +31,6 @@ function displayFridgeItems() {
         const item = fridgeItems[i];
         const listItem = document.createElement('p');
         listItem.classList.add('fridge-item');
-        fridgeList.classList.add('fridge-item');
         listItem.textContent = `${item.name} - ${item.quantity} grams`;
         const deleteButton = document.createElement('button');
         deleteButton.classList.add('delete-button')
@@ -41,7 +40,6 @@ function displayFridgeItems() {
         fridgeList.appendChild(listItem);
     }
     fridgeList.style.textAlign = 'center';
-    fridgeList.style.padding = "1rem";
 }
 
 // Add item button click handler
