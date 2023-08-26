@@ -57,3 +57,21 @@ a{
     margin-top: 20px;
     text-align: center;
   }
+  
+  .fridge-item {
+    padding: 0.5rem;
+    background-color: white;
+    border-radius: 1rem;
+    margin: 0.5rem; /* Add a small margin for spacing */
+  }
+  
+
+.delete-button {
+  margin-left:1rem;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center; /* Horizontally center the white box */
+  align-items: center; /* Vertically center the white box */
+}
