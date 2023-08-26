@@ -46,3 +46,14 @@ body {
 a{
     text-decoration: none;
 }
+
+.section-title {
+    width: 100%; /* Make the title span the entire width */
+    text-align: center;
+}
+
+.picture {
+    width: 20%; /* Adjust this width as needed to fit four pictures in a row */
+    margin-top: 20px;
+    text-align: center;
+  }
