@@ -10,11 +10,12 @@ function initMap(latitude, longitude) {
     });
 
     const service = new google.maps.places.PlacesService(map);
-    const groceryStoreType = 'grocery_or_supermarket';
+    const groceryStoreTypes = ['grocery_or_supermarket'];
     const request = {
         location: { lat: latitude, lng: longitude },
         radius: 5000,
-        type: groceryStoreType
+        types: groceryStoreTypes,
+        name: ['Fortinos', 'No Frills', 'Food Basics']
     };
 
     if (userMarker) {
