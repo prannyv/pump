@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Grocery Stores</title>
+    <style>
+        /* Your CSS styles here */
+        /* ... */
+                body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #header {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        #findNearbyStores {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #findNearbyStores:hover {
+            background-color: #2980b9;
+        }
+        #map {
+            height: 500px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        #sidebar {
+            width: 300px;
+            background-color: #f1f1f1;
+            padding: 20px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+        }
+        #storeList {
+            list-style: none;
+            padding: 0;
+        }
+        #storeList li {
+            padding: 5px;
+            cursor: pointer;
+        }
+        #storeList li:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+<style>
+        /* Your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #header {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        #findNearbyStores {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #findNearbyStores:hover {
+            background-color: #2980b9;
+        }
+        #map {
+            height: 500px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        #sidebar {
+            width: 300px;
+            background-color: #f1f1f1;
+            padding: 20px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+        }
+        #storeList {
+            list-style: none;
+            padding: 0;
+        }
+        #storeList li {
+            padding: 5px;
+            cursor: pointer;
+        }
+        #storeList li:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlhZvYdbAwtJveu7BmfNdECLUPkL42MeE&libraries=places"></script>
+</head>
+<body>
+    <div id="header">
+        <h1>Nearby Grocery Stores</h1>
+        <button id="findNearbyStores">Find Nearby Grocery Stores</button>
+    </div>
+    <div id="map"></div>
+    <div id="sidebar">
+        <h2>Nearby Grocery Stores</h2>
+        <ul id="storeList"></ul>
+        <div id="selectedStoreInfo">
+            <h3>Selected Store</h3>
+            <p id="selectedStoreName"></p>
+            <p id="selectedStoreWalkingTime"></p>
+            <p id="selectedStoreDrivingTime"></p>
+            <p id="selectedStoreTransitTime"></p>
+            <button id="getDirections" disabled>Get Directions</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
