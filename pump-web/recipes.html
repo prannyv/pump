@@ -41,95 +41,129 @@
         <h1 class="nav-title" style="margin-top: 10px">Pantry Pals</h1>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index.html" style="color: #faf9f6">Home</a>
+        <a class="nav-link" href="index.html">Home</a>
       </li>
       <li class="nav-item">
-        <a
-          class="nav-link active"
-          aria-current="page"
-          href="recipes.html"
-          style="color: #faf9f6"
+        <a class="nav-link active" aria-current="page" href="recipes.html"
           >Recipes</a
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="list.html" style="color: #faf9f6"
+        <a class="nav-link" href="list.html"
           >Grocery List</a
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="fridge.html" style="color: #faf9f6">Fridge</a>
+        <a class="nav-link" href="fridge.html">Fridge</a>
       </li>
     </ul>
     <div
-    class="container-flexible"
-    style="
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      background-color: aliceblue;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgb(61, 61, 61);
-      padding: 20px;
-      margin-top: 4vw;
-      margin-left: 2vw;
-      margin-bottom: 2vw;
-      margin-right: 2vw;
-    "
-  >      <div class="container mt-5">
-          <h1>Search Recipes</h1>
-          <div class="input-group mb-3">
-              <input id="searchInput" class="form-control" type="text" placeholder="Search...">
-              <div class="input-group-append">
-                  <button id="searchButton" class="btn btn-primary">Search</button>
-              </div>
+      class="container-flexible"
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        background-color: aliceblue;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgb(61, 61, 61);
+        padding: 20px;
+        margin-top: 4vw;
+        margin-left: 2vw;
+        margin-bottom: 2vw;
+        margin-right: 2vw;
+      "
+    >
+      <div class="container mt-5">
+        <h1>Search Recipes</h1>
+        <div class="input-group mb-3">
+          <input
+            id="searchInput"
+            class="form-control"
+            type="text"
+            placeholder="Search..."
+          />
+          <div class="input-group-append">
+            <button id="searchButton" class="btn btn-primary">Search</button>
           </div>
+        </div>
       </div>
-  </div>
-  <div style="display: flex; justify-content: space-between;">
-    <div class="container-flexible" style="display: flex; flex-wrap: wrap; justify-content: space-between; background-color: aliceblue; border-radius: 10px; box-shadow: 0 0 10px rgb(61, 61, 61); padding: 20px; margin-top: 4vw; margin-left: 2vw; margin-bottom: 2vw; margin-right: 2vw; width: calc(50% - 2vw); ">
-      <h2 style="flex-basis: 100%;">Recipe: <span id="searchTermHeading"></span></h2>
-  </div>
-  
-      <div class="container-flexible" style=" flex-wrap: wrap; justify-content: space-between; background-color: aliceblue; border-radius: 10px; box-shadow: 0 0 10px rgb(61, 61, 61); padding: 20px; margin-top: 4vw; margin-left: 2vw; margin-bottom: 2vw; margin-right: 2vw; width: calc(50% - 2vw); ">
-        <h2>Ingredients:</h2>
-        <ul style="list-style-type: disc; padding-left: 20px;">
-            <li>Ingredient 1</li>
-            <li>Ingredient 2</li>
-            <li>Ingredient 3</li>
-            <li>Ingredient 4</li>
-        </ul>
     </div>
-    
-  </div>
-  
-  <script>
-      const searchInput = document.getElementById('searchInput');
-      const searchButton = document.getElementById('searchButton');
-      const searchTermHeading = document.getElementById('searchTermHeading');
-  
-      searchButton.addEventListener('click', performSearch);
-      searchInput.addEventListener('keydown', (event) => {
-          if (event.key === 'Enter') {
-              performSearch();
-          }
+    <div style="display: flex; justify-content: space-between">
+      <div
+        class="container-flexible"
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          background-color: aliceblue;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgb(61, 61, 61);
+          padding: 20px;
+          margin-top: 4vw;
+          margin-left: 2vw;
+          margin-bottom: 2vw;
+          margin-right: 2vw;
+          width: calc(50% - 2vw);
+        "
+      >
+        <h2 style="flex-basis: 100%">
+          Recipe: <span id="searchTermHeading"></span>
+        </h2>
+      </div>
+
+      <div
+        class="container-flexible"
+        style="
+          flex-wrap: wrap;
+          justify-content: space-between;
+          background-color: aliceblue;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgb(61, 61, 61);
+          padding: 20px;
+          margin-top: 4vw;
+          margin-left: 2vw;
+          margin-bottom: 2vw;
+          margin-right: 2vw;
+          width: calc(50% - 2vw);
+        "
+      >
+        <h2>Ingredients:</h2>
+        <ul style="list-style-type: disc; padding-left: 20px">
+          <li>Ingredient 1</li>
+          <li>Ingredient 2</li>
+          <li>Ingredient 3</li>
+          <li>Ingredient 4</li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      const searchInput = document.getElementById("searchInput");
+      const searchButton = document.getElementById("searchButton");
+      const searchTermHeading = document.getElementById("searchTermHeading");
+
+      searchButton.addEventListener("click", performSearch);
+      searchInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          performSearch();
+        }
       });
-  
+
       function performSearch() {
-          const searchTerm = searchInput.value.trim();
-  
-          if (searchTerm !== '') {
-              searchTermHeading.textContent = searchTerm;
-              saveSearchTerm(searchTerm);
-              searchInput.value = '';
-          }
+        const searchTerm = searchInput.value.trim();
+
+        if (searchTerm !== "") {
+          searchTermHeading.textContent = searchTerm;
+          saveSearchTerm(searchTerm);
+          searchInput.value = "";
+        }
       }
-  
+
       function saveSearchTerm(term) {
-          console.log(`Search term: ${term}`);
+        console.log(`Search term: ${term}`);
       }
-  </script>
-  
+    </script>
+
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -21,9 +21,12 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Sans&family=Nabla&family=Signika+Negative:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Sans&family=Nabla&family=Signika+Negative:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
 
     <script
@@ -34,26 +37,63 @@
   </head>
   <body>
     <ul class="nav">
-        <li class="nav-item">
-            <h1 class="nav-title" style="margin-top: 10px;">
-              Pantry Pals
-            </h1>
-          </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.html" style="color:#FAF9F6">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="recipes.html" style="color:#FAF9F6">Recipes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="list.html" style="color:#FAF9F6">Grocery List</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="fridge.html" style="color:#FAF9F6">Fridge</a>
-          </li>
-      </ul>
-    <h1 style="font-family: 'Archivo Black', sans-serif; font-size:50px; padding: 20px;">Fridge</h1>
-    <script src="index.js"></script>
+      <li class="nav-item">
+        <h1 class="nav-title" style="margin-top: 10px">Pantry Pals</h1>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="recipes.html">Recipes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="list.html">Grocery List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="fridge.html"
+          >Fridge</a
+        >
+      </li>
+    </ul>
+    <div
+      class="container-flexible"
+      style="
+        flex-wrap: wrap;
+        justify-content: space-between;
+        background-color: aliceblue;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgb(61, 61, 61);
+        padding: 20px;
+        margin-top: 4vw;
+        margin-left: 2vw;
+        margin-bottom: 2vw;
+        margin-right: 2vw;
+      "
+    >
+      <h2>Fridge</h2>
+      <label for="itemName">Item Name:</label>
+      <input type="text" id="itemName" />
+      <label for="itemQuantity">Quantity (grams):</label>
+      <input type="number" id="itemQuantity" />
+      <button
+        class="btn btn-primary"
+        id="addItemButton"
+        style="
+          background-color: #c1e1c1;
+          color: black;
+          border-color: #c1e1c1;
+          margin-bottom: 10px;
+          font-weight: 600;
+        "
+      >
+        Add Item
+      </button>
+    </div>
+
+    <div class="center-container">
+      <ul id="fridgeList"></ul>
+    </div>
+    <script src="Fridge.js"></script>
 
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -67,21 +107,4 @@
       crossorigin="anonymous"
     ></script>
   </body>
-  <body>
-    <div class="center-container">
-      <div style="background-color: white; padding: 1rem; border: 2px solid black; border-radius: 1rem;">
-        <h2>Fridge Items</h2>
-        <label for="itemName">Item Name:</label>
-        <input type="text" id="itemName" />
-        <label for="itemQuantity">Quantity (grams):</label>
-        <input type="number" id="itemQuantity" />
-        <button id="addItemButton">Add Item</button>
-      </div>
-    </div>
-    
-    <div class="center-container">
-      <ul id="fridgeList"></ul>
-    </div>
-    <script src="Fridge.js"></script>
-  </body>
-  </html>
+</html>
