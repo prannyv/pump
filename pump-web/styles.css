@@ -1,0 +1,59 @@
+html,
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #005726, #2F4C39);
+}
+
+
+.nav {
+    display: flex;
+    align-items: center; /* Vertically align items within the navbar */
+    background-color: #333; /* Example background color */
+    color: #faf9f6;
+    padding: 10px;
+  }
+  
+  .nav-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 24px;
+    margin-right: auto; /* Push other navigation items to the right */
+    padding-right: 20px;
+  }
+  
+  .nav-item {
+    list-style-type: none;
+    margin: 0 10px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #faf9f6;
+  }
+  
+
+#intro{
+    background-image: url("https://hips.hearstapps.com/hmg-prod/images/meal-prep-index-1566932947.png");
+    border-radius: 10px;
+    min-height: 600px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+a{
+    text-decoration: none;
+}
+
+.section-title {
+    width: 100%; /* Make the title span the entire width */
+    text-align: center;
+}
+
+.picture {
+    width: 20%; /* Adjust this width as needed to fit four pictures in a row */
+    margin-top: 20px;
+    text-align: center;
+  }
