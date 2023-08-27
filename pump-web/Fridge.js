@@ -1,5 +1,6 @@
-// Initialize fridge data
-let fridgeItems = [];
+// Load items from Session Storage if available
+const savedFridgeItems = sessionStorage.getItem('fridgeItems');
+fridgeItems = savedFridgeItems ? JSON.parse(savedFridgeItems) : [];
 
 // DOM elements
 const itemNameInput = document.getElementById('itemName');
@@ -10,13 +11,19 @@ const fridgeList = document.getElementById('fridgeList');
 // Add item to fridge
 function addItem(name, quantity) {
     fridgeItems.push({ name, quantity });
+    saveFridgeItems(); // Save items to Session Storage
     displayFridgeItems();
 }
 
 // Delete item from fridge
 function deleteItem(itemIndex) {
     fridgeItems.splice(itemIndex, 1);
+    saveFridgeItems(); // Save items to Session Storage
     displayFridgeItems();
+}
+
+function saveFridgeItems() {
+    sessionStorage.setItem('fridgeItems', JSON.stringify(fridgeItems));
 }
 
 //Update list
@@ -31,9 +38,10 @@ function displayFridgeItems() {
         const item = fridgeItems[i];
         const listItem = document.createElement('p');
         listItem.classList.add('fridge-item');
+        fridgeList.classList.add('fridge-item');
         listItem.textContent = `${item.name} - ${item.quantity} grams`;
         const deleteButton = document.createElement('button');
-        deleteButton.classList.add('delete-button')
+        deleteButton.classList.add('delete-button');
         deleteButton.textContent = 'Delete';
         deleteButton.addEventListener('click', () => deleteItem(i));
         listItem.appendChild(deleteButton);

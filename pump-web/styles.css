@@ -69,6 +69,11 @@ a{
 
 .delete-button {
   margin-left:1rem;
+  background-color:#c1e1c1;
+  border-radius:0.25rem;
+  border:none;
+  border-color: #c1e1c1;
+  font-weight:500;
 }
 
 .center-container {
