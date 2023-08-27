@@ -15,6 +15,15 @@ body {
     padding: 10px;
   }
   
+  .delete-button {
+    margin-left:1rem;
+    background-color:#c1e1c1;
+    border-radius:0.25rem;
+    border:none;
+    border-color: #c1e1c1;
+    font-weight:500;
+  }
+
   .nav-title {
     font-family: 'Archivo Black', sans-serif;
     font-size: 24px;

@@ -37,6 +37,7 @@ function displayFridgeItems() {
         const deleteButton = document.createElement('button');
         deleteButton.classList.add('delete-button')
         deleteButton.textContent = 'Delete';
+        deleteButton.classList.add('delete-button');
         deleteButton.addEventListener('click', () => deleteItem(i));
         listItem.appendChild(deleteButton);
         fridgeList.appendChild(listItem);
