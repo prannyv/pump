@@ -6,10 +6,6 @@ openai.api_key_path = "key.txt"
 
 
 
-# response = openai.Completion.create(
-#   model="text-davinci-003",
-#   prompt="Given a simple meal, generate a list of all necessary ingredients and amounts needed to purchase. The food is spaghetti & meatballs"
-# )
 
 
 def generateMeal(recipe):
@@ -36,12 +32,20 @@ def generateMeal(recipe):
 
 
 response = generateMeal("Chicken Tacos")
-file = open("return.json", "w")
+
+
+
+
 # file.write(response)
 # print(response)
 # print(response.type())
 
 
+
+# response = openai.Completion.create(
+#   model="text-davinci-003",
+#   prompt="Given a simple meal, generate a list of all necessary ingredients and amounts needed to purchase. The food is spaghetti & meatballs"
+# )
 
  
 # from fastapi import FastAPI
