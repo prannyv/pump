@@ -109,6 +109,7 @@
         <h2 style="flex-basis: 100%">
           Recipe: <span id="searchTermHeading"></span>
         </h2>
+        <p id="demo2"></p>
       </div>
 
       <div
@@ -128,11 +129,7 @@
         "
       >
         <h2>Ingredients:</h2>
-        <ul style="list-style-type: disc; padding-left: 20px">
-          <li>Ingredient 1</li>
-          <li>Ingredient 2</li>
-          <li>Ingredient 3</li>
-          <li>Ingredient 4</li>
+        <ul id="demo" style="list-style-type: disc; padding-left: 20px">
         </ul>
       </div>
     </div>
@@ -150,32 +147,57 @@
       
         function performSearch() {
           const searchTerm = searchInput.value.trim();
-          var requestOptions = {
-            method: 'GET',
-            redirect: 'follow'
-          };
 
-          fetch("http://127.0.0.1:4000/", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
 
-          if (searchTerm !== '') {
-            saveSearchTerm(searchTerm);
-            searchInput.value = ''; // Clear the input field
-          }
+          var myHeaders = new Headers();
+myHeaders.append("Content-Type", "text/plain");
+
+var raw = searchTerm;
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("http://127.0.0.1:4000/test", requestOptions)
+  .then(response => response.text())
+  .then(result => {
+    setText(result);
+  })
+  .catch(error => console.log('error', error));
+
+        }
+        
+        function setText(text){
+          const recipeText = text.substring(text.indexOf("Ingredients")+13, text.indexOf("Instructions"))
+          const instructText = text.substring(text.indexOf("Instructions"+13))
+
+          //adding to ingredient list
+          var list = document.getElementById('demo');
+          var entry = document.createElement('li');
+          entry.appendChild(document.createTextNode(recipeText));
+          list.appendChild(entry)
+
+          var paragraph = document.getElementById('demo2');
+          paragraph.innerHTML = instructText;
+
+
         }
       
-
-      function performSearch() {
-        const searchTerm = searchInput.value.trim();
-
-        if (searchTerm !== "") {
-          searchTermHeading.textContent = searchTerm;
-          saveSearchTerm(searchTerm);
-          searchInput.value = "";
+        export default function getText(){
+          return document.getElementById('demo');
         }
-      }
+      // function performSearch() {
+      //   const searchTerm = searchInput.value.trim();
+
+      //   if (searchTerm !== "") {
+      //     searchTermHeading.textContent = searchTerm;
+      //     saveSearchTerm(searchTerm);
+      //     searchInput.value = "";
+      //   }
+      // }
 
       function saveSearchTerm(term) {
         console.log(`Search term: ${term}`);
