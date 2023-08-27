@@ -2,6 +2,13 @@ let userMarker = null;
 let markers = [];
 let selectedStore = null;
 let map = null;
+import getText from "./recipe";
+
+var text = getText()
+
+export default function getText(){
+    return document.getElementById('demo');
+  }
 
 const groceryPrices = {
     "noFrills": {
