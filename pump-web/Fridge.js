@@ -10,18 +10,19 @@ const fridgeList = document.getElementById('fridgeList');
 // Add item to fridge
 function addItem(name, quantity) {
     fridgeItems.push({ name, quantity });
+    saveFridgeItems();
     displayFridgeItems();
 }
 
 // Delete item from fridge
 function deleteItem(itemIndex) {
     fridgeItems.splice(itemIndex, 1);
+    saveFridgeItems(); // Save items to Session Storage
     displayFridgeItems();
 }
 
-//Update list
-function updateList(recipe, newList){
-    
+function saveFridgeItems() {
+    sessionStorage.setItem('fridgeItems', JSON.stringify(fridgeItems));
 }
 
 // Display fridge items on the UI
