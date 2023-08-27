@@ -29,7 +29,7 @@
             cursor: pointer;
         }
         #findNearbyStores:hover {
-            background-color: white;
+            background-color: grey;
         }
         #map {
             height: 650px;
@@ -56,10 +56,10 @@
             cursor: pointer;
         }
         #storeList li:hover {
-            background-color: #e0e0e0;
+            background-color: grey;
         }
     </style>
-    <script src="https://maps.googleapis.com/maps/api/js?key=apiKey&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlhZvYdbAwtJveu7BmfNdECLUPkL42MeE&libraries=places"></script>
 </head>
 <body>
     <div id="header">
@@ -73,11 +73,7 @@
         <div id="selectedStoreInfo">
             <h3>Selected Store</h3>
             <p id="selectedStoreName"></p>
-            <p id="selectedStoreWalkingTime"></p>
-            <p id="selectedStoreDrivingTime"></p>
-            <p id="selectedStoreTransitTime"></p>
             <p id="selectedStoreTotalPrice">Total Price: </p>
-            <button id="getDirections" disabled>Get Directions</button>
         </div>
     </div>
     <div id="loadingSpinner" style="display: none;">Loading...</div>

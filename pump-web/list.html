@@ -3,7 +3,7 @@
   <head>
     <title>Pump and Power</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Edward Zhang" />
+    <meta name="author" content="Edward Zhang and John Merkhai" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
@@ -31,6 +31,62 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+              body {
+          font-family: 'Archivo Black', sans-serif;
+          color:#333 ;
+          margin: 0;
+          padding: 0;;
+          background-color: green;
+      }
+      #header {
+        background: linear-gradient(to bottom, #005726, #2F4C39);
+          color: white;
+          text-align: center;
+          padding: 10px;
+  
+      }
+      #findNearbyStores {
+          background-color: white;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+      }
+      #findNearbyStores:hover {
+          background-color: grey;
+      }
+      #map {
+          height: 650px;
+          width: 100%;
+          margin-top: 20px;
+      }
+      #sidebar {
+          width: 300px;
+          overflow: auto;
+          height: 100%;
+          background-color: white;
+          padding: 20px;
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          display: none;
+      }
+      #storeList {
+          list-style: none;
+          padding: 0;
+      }
+      #storeList li {
+          padding: 5px;
+          cursor: pointer;
+      }
+      #storeList li:hover {
+          background-color: grey;
+      }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlhZvYdbAwtJveu7BmfNdECLUPkL42MeE&libraries=places"></script>
   </head>
   <body>
     <ul class="nav">
@@ -66,5 +122,24 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-  </body>
-</html>
+    
+    <div id="header">
+      <h1 style="color:#333">Nearby Grocery Stores</h1>
+      <button id="findNearbyStores" style="color:#333">Find Nearby Grocery Stores</button>
+  </div>
+  
+  <div>
+  </div>
+  
+  <div id="map"></div>
+  <div id="sidebar">
+      <h2>Nearby Grocery Stores</h2>
+      <ul id="storeList"></ul>
+      <div id="selectedStoreInfo">
+          <h3>Selected Store</h3>
+          <p id="selectedStoreName"></p>
+          <p id="selectedStoreTotalPrice">Total Price: </p>
+      </div>
+  </div>
+  <div id="loadingSpinner" style="display: none;">Loading...</div>
+  <script src="script.js"></script>
