@@ -30,9 +30,9 @@ def generateMeal(recipe):
         stop=["Note"]
     )
 
-    file = open('ingredients.txt', "w")
-    text = mealVar['choices'][0]["message"]["content"]
-    file.write(text)
+    # file = open('ingredients.txt', "w")
+    # text = mealVar['choices'][0]["message"]["content"]
+    # file.write(text)
 
     return mealVar
 
