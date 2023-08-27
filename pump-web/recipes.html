@@ -49,9 +49,7 @@
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="list.html"
-          >Grocery List</a
-        >
+        <a class="nav-link" href="list.html">Grocery List</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="fridge.html">Fridge</a>
@@ -129,63 +127,67 @@
         "
       >
         <h2>Ingredients:</h2>
-        <ul id="demo" style="list-style-type: disc; padding-left: 20px">
-        </ul>
+        <ul id="demo" style="list-style-type: disc; padding-left: 20px"></ul>
       </div>
     </div>
 
     <script>
-        const searchInput = document.getElementById('searchInput');
-        const searchButton = document.getElementById('searchButton');
-      
-        searchButton.addEventListener('click', performSearch);
-        searchInput.addEventListener('keydown', (event) => {
-          if (event.key === 'Enter') {
-            performSearch();
-          }
-        });
-      
-        function performSearch() {
-          const searchTerm = searchInput.value.trim();
+      const searchInput = document.getElementById("searchInput");
+      const searchButton = document.getElementById("searchButton");
 
-
-          var myHeaders = new Headers();
-myHeaders.append("Content-Type", "text/plain");
-
-var raw = searchTerm;
-
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: raw,
-  redirect: 'follow'
-};
-
-fetch("http://127.0.0.1:4000/test", requestOptions)
-  .then(response => response.text())
-  .then(result => {
-    setText(result);
-  })
-  .catch(error => console.log('error', error));
-
+      searchButton.addEventListener("click", performSearch);
+      searchInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          performSearch();
         }
-        
-        function setText(text){
-          const recipeText = text.substring(text.indexOf("Ingredients")+13, text.indexOf("Instructions"))
-          const instructText = text.substring(text.indexOf("Instructions"+13))
+      });
 
-          //adding to ingredient list
-          var list = document.getElementById('demo');
-          var entry = document.createElement('li');
-          entry.appendChild(document.createTextNode(recipeText));
-          list.appendChild(entry)
+      function performSearch() {
+        const searchTerm = searchInput.value.trim();
 
-          var paragraph = document.getElementById('demo2');
-          paragraph.innerHTML = instructText;
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "text/plain");
 
+        var raw = searchTerm;
 
+        var requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          body: raw,
+          redirect: "follow",
+        };
+
+        fetch("http://127.0.0.1:4000/test", requestOptions)
+          .then((response) => response.text())
+          .then((result) => {
+            setText(result);
+          })
+          .catch((error) => console.log("error", error));
+      }
+
+      function setText(text) {
+        const recipeText = text.substring(
+          text.indexOf("Ingredients") + 13,
+          text.indexOf("Instructions")
+        );
+        const instructText = text.substring(text.indexOf("Instructions" + 13));
+
+        //adding to ingredient list
+        var list = document.getElementById("demo");
+        //var entry = document.createElement("li");
+        //entry.appendChild(document.createTextNode(recipeText));
+        var splitEntry = entry.split("-");
+        //list.appendChild(entry);
+
+        for (var i = 0; i < parts.length; i++) {
+          var entry = document.createElement("li");
+          entry.appendChild(document.createTextNode(parts[i].trim()));
+          list.appendChild(entry);
         }
-      
+        var paragraph = document.getElementById("demo2");
+        paragraph.innerHTML = instructText;
+      }
+
       // function performSearch() {
       //   const searchTerm = searchInput.value.trim();
 
