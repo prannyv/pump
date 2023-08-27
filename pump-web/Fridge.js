@@ -1,5 +1,6 @@
 // Initialize fridge data
-let fridgeItems = [];
+const savedFridgeItems = sessionStorage.getItem('fridgeItems');
+fridgeItems = savedFridgeItems ? JSON.parse(savedFridgeItems) : [];
 
 // DOM elements
 const itemNameInput = document.getElementById('itemName');
