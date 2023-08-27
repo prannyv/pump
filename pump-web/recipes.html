@@ -147,6 +147,11 @@
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "text/plain");
+        
+        
+        
+          var paragraph = document.getElementById('demo2');
+          paragraph.innerHTML = instructText;
 
         var raw = searchTerm;
 
@@ -165,25 +170,23 @@
           .catch((error) => console.log("error", error));
       }
 
-      function setText(text) {
-        const recipeText = text.substring(
-          text.indexOf("Ingredients") + 13,
-          text.indexOf("Instructions")
-        );
-        const instructText = text.substring(text.indexOf("Instructions" + 13));
+      function setText(text){
+          const recipeText = text.substring(text.indexOf("Ingredients")+13, text.indexOf("Instructions"))
+          const instructText = text.substring(text.indexOf("Instructions")+13, text.length)
 
-        //adding to ingredient list
-        var list = document.getElementById("demo");
-        //var entry = document.createElement("li");
-        //entry.appendChild(document.createTextNode(recipeText));
-        var splitEntry = entry.split("-");
-        //list.appendChild(entry);
+          //adding to ingredient list
+          var list = document.getElementById('demo');
+          var entry = document.createElement('li');
 
-        for (var i = 0; i < parts.length; i++) {
-          var entry = document.createElement("li");
-          entry.appendChild(document.createTextNode(parts[i].trim()));
-          list.appendChild(entry);
+          var parts = recipeText.split("-");
+
+    for (var i = 0; i < parts.length; i++) {
+        if (parts[i].trim() !== "") { // Avoid adding empty parts
+            var item = document.createElement("li");
+            item.appendChild(document.createTextNode(parts[i].trim()));
+            list.appendChild(item);
         }
+    }
         var paragraph = document.getElementById("demo2");
         paragraph.innerHTML = instructText;
       }
