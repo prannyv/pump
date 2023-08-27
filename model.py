@@ -12,30 +12,50 @@ openai.api_key_path = "key.txt"
 # )
 
 
+def generateMeal(recipe):
+    return openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {
+            "role": "system",
+            "content": "You are a meal preparation helper and given an inputted meal, generate a recipe and list of necessary ingredients and amounts in grams or kilograms for all items (convert from cups or tablespoons to grams)"
+            },
+            {
+            "role": "user",
+            "content": "The meal is" + str(recipe)
+            },
+            
+        ],
+        temperature=1,
+        max_tokens=512,
+        top_p=1,
+        frequency_penalty=0,
+        presence_penalty=0,
+        stop=["Note"]
+    )
 
-response = openai.ChatCompletion.create(
-  model="gpt-3.5-turbo",
-  messages=[
-    {
-      "role": "system",
-      "content": "You are a meal preparation helper and given an inputted meal, generate a recipe and list of necessary ingredients and amounts in grams or kilograms for all items (convert from cups or tablespoons to grams)"
-    },
-    {
-      "role": "user",
-      "content": "The meal is Chicken Tacos"
-    },
-    
-  ],
-  temperature=1,
-  max_tokens=512,
-  top_p=1,
-  frequency_penalty=0,
-  presence_penalty=0,
-  stop=["Note"]
-)
 
-
+response = generateMeal("Chicken Tacos")
 file = open("return.json", "w")
-file.write(response)
-print(response)
-print(response.type())
+# file.write(response)
+# print(response)
+# print(response.type())
+
+
+
+ 
+# from fastapi import FastAPI
+# from fastapi.middleware.cors import CORSMiddleware
+
+# app = FastAPI()
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins = ["*"],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"]
+# )
+
+# @app.get('/get-result')
+# async def getResult(msg: str):
+#     return classifyMessage(msg)
